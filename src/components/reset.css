@@ -3,6 +3,12 @@
 *::after {
   box-sizing: border-box;
 }
+#root {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  max-width: none;
+}
 html,
 body,
 div,
@@ -91,12 +97,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
-#root {
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  max-width: none;
-}
+
 body {
   font-family: "Roboto", sans-serif;
   color: #434455;
