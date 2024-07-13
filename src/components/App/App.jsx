@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Description from "../Description/Description";
 import Options from "../Options/Options";
 import Feedback from "../Feedback/Feedback";
+import Notification from "../Notification/Notification";
 
 import style from "./App.module.css";
 
@@ -52,7 +53,7 @@ function App() {
           positiveFeedback={positiveFeedback}
         />
       ) : (
-        <p>No feedback yet</p>
+        <Notification />
       )}
     </div>
   );
