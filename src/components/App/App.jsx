@@ -7,10 +7,21 @@ import Feedback from "../Feedback/Feedback";
 import style from "./App.module.css";
 
 function App() {
-  const [feedback, setFeedback] = useState({ good: 0, neutral: 0, bad: 0 });
+  const [feedback, setFeedback] = useState(() => {
+    const savedFeedback = window.localStorage.getItem("feedback");
+    if (savedFeedback !== null) {
+      console.log(savedFeedback + "from local");
+      return JSON.parse(savedFeedback);
+    }
+    return { good: 0, neutral: 0, bad: 0 };
+  });
+  useEffect(() => {
+    window.localStorage.setItem("feedback", JSON.stringify(feedback));
+    console.log(feedback + "go in local");
+  }, [feedback]);
+
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
   const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
-
   const updateFeedback = (feedbackType) => {
     setFeedback({
       ...feedback,
